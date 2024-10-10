@@ -48,6 +48,7 @@ This project involves the development of several mobile and desktop applications
 ### Operator Tracker App
 ![](operatorDemo.png)
 ![](editOperatorDemo.png)
+![](demo_images/editOperatorDemo.png)
 * Description: Create and edit operators and airplanes along with submitting reviews for an operator.
 * Known Bugs: No known bugs
 * How to use:
