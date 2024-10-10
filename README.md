@@ -46,8 +46,7 @@ This project involves the development of several mobile and desktop applications
 
 ## Usage
 ### Operator Tracker App
-![](operatorDemo.png)
-![](editOperatorDemo.png)
+![](demo_images/operatorDemo.png)
 ![](demo_images/editOperatorDemo.png)
 * Description: Create and edit operators and airplanes along with submitting reviews for an operator.
 * Known Bugs: No known bugs
@@ -59,8 +58,8 @@ This project involves the development of several mobile and desktop applications
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ### Airport Tracker App
-![](airportTrackerDemo.png)
-![](addCityDemo.png)
+![](demo_images/airportTrackerDemo.png)
+![](demo_images/addCityDemo.png)
 * Description: Create and edit cities and airports and check forecasts for an airport on a certain day.
 * Known Bugs: No known bugs
 * How to use:
@@ -76,8 +75,8 @@ This project involves the development of several mobile and desktop applications
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ### Travel Planner App
-![](travelAppDemo.png)
-![](validateLocationDemo.png)
+![](demo_images/travelAppDemo.png)
+![](demo_images/validateLocationDemo.png)
 * Description: Allows a travel agent to manage a database shared by the mobile apps, validate data collected by the mobile apps, and to prepare itineraries for travelers.
 * Known Bugs: Prepare Itinerary function exists and is tested, but a bug exists when trying to implement it to GUI.
 * How to use:
@@ -86,8 +85,8 @@ This project involves the development of several mobile and desktop applications
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## Software Architecture
-![architecture](https://github.com/user-attachments/assets/d125faf7-0530-4731-a3cc-65ad58235907)
-![databaseDesign](https://github.com/user-attachments/assets/37155b86-cc5d-4a9e-a578-b5ccc134eb48)
+![architecture](demo_images/)
+![databaseDesign](demo_images/)
 
 * All three applications (<a href="#operator-tracker-app">Operator Tracker App</a>, <a href="#airport-tracker-app">Airport Tracker App</a>, <a href="#travel-planner-app">Travel Planner App</a>) used a common database for data transfer.
 * The database is prepoulated with hard-coded values in the installer(when the installer is run).
