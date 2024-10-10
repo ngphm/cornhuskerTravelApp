@@ -1,0 +1,44 @@
+#: import Airport database.Airport
+Screen:
+    name: 'new_airport'
+    on_leave:
+        airport_name.text = ''
+        airport_code.text = ''
+        latitude.text = ''
+        longitude.text = ''
+    Header:
+        title: 'New Airport'
+        BoxLayout:
+            orientation: 'vertical'
+            Widget:
+                size_hint_y: .25
+            GridLayout:
+                cols: 2
+                rows: 4
+                row_force_default: True
+                row_default_height: 40
+                Label:
+                    text: 'Name'
+                TextInput:
+                    id: airport_name
+                Label:
+                    text: 'ICAO Code'
+                TextInput:
+                    id: airport_code
+                Label:
+                    text: 'Latitude'
+                TextInput:
+                    id: latitude
+                    input_filter: 'float'
+                Label:
+                    text: 'Longitude'
+                TextInput:
+                    id: longitude
+                    input_filter: 'float'
+            Button:
+                text: 'Submit'
+                size_hint_y: .25
+                on_press:
+                    check= {'ICAO_code':airport_code.text}
+                    values = {'name':airport_name.text,'latitude':latitude.text,'longitude':longitude.text}
+                    app.create_popup(app.create_object(app.session,Airport,check,values))

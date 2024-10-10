@@ -1,0 +1,29 @@
+Screen:
+    name: 'update_ratings'
+    Header:
+        title: 'Update Ratings'
+        BoxLayout:
+            orientation: 'vertical'
+            Label:
+                text: 'Please update the ratings of listed operators.'
+            ScrollView:
+                size_hint_y: 2
+                ListHolder:
+                    id: update_rating_list
+
+
+            BoxLayout:
+                orientation: 'horizontal'
+                Button:
+                    id: accept_rating
+                    size_hint_y: .25
+                    text: 'Accept'
+                    on_press:
+                        app.accept_rating_clicked()
+
+                Button:
+                    id: reject_rating
+                    size_hint_y: .25
+                    text: 'Reject'
+                    on_press:
+                        app.reject_rating_clicked()

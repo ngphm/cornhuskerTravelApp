@@ -1,0 +1,71 @@
+#: import Operator database.Operator
+#: import Airplane database.Airplane
+Screen:
+    name: 'new_operator'
+    on_enter:
+        app.create_popup(app.populate_spinner(app.session, Operator,operator_spinner,True))
+        app.create_popup(app.populate_spinner(app.session, Airplane,airplane_spinner))
+    on_leave:
+        operator_grid.disabled = True
+        operator_name.text = ''
+        operator_score.text = ''
+        airplane_spinner.text = ''
+    Header:
+        title: 'Add/Edit Operator'
+        BoxLayout:
+            orientation: 'vertical'
+            GridLayout:
+                valign: 'center'
+                cols: 2
+                rows: 1
+                row_force_default: True
+                row_default_height: 40
+                size_hint_y:.25
+                Label:
+                    text: 'Operator'
+                Spinner:
+                    id: operator_spinner
+                    text: "Select"
+                    background_color: 0.5, 0.7, 1, 1
+                    pos_hint:{'center_x':1, 'top': 1}
+                    values: ['Empty Spinner']
+                    on_text:
+                        app.create_popup(app.on_operator_spinner_clicked(app.session, operator_spinner.text, operator_grid, airports_list, operator_name, operator_score, airplane_spinner))
+            GridLayout:
+                id: operator_grid
+                disabled: True
+                cols: 2
+                rows: 3
+                row_force_default: True
+                row_default_height: 40
+                Label:
+                    text: 'Name'
+                TextInput:
+                    id:   operator_name
+                Label:
+                    text: 'RateMyPilot \nScore'
+                TextInput:
+                    id:   operator_score
+                    input_filter: 'float'
+                Label:
+                    text: 'Airplane'
+                Spinner:
+                    id:   airplane_spinner
+                    text: "Select"
+                    background_color: 0.5, 0.7, 1, 1
+                    pos_hint:{'center_x':1, 'top': 1}
+            GridLayout:
+                cols: 2
+                rows: 1
+                Label:
+                    text: 'Airports'
+                ScrollView:
+                    size_hint_y: 2
+                    ListHolder:
+                        id: airports_list
+                        disabled: True
+            Button:
+                text: 'Submit'
+                size_hint_y: .25
+                on_press:
+                    app.create_popup(app.new_operator_clicked(app.session,operator_spinner.text,operator_name.text,operator_score.text,airplane_spinner.text,airports_list.selected_elements,operator_spinner))
