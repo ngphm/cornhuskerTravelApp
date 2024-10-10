@@ -85,8 +85,8 @@ This project involves the development of several mobile and desktop applications
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## Software Architecture
-![architecture](demo_images/)
-![databaseDesign](demo_images/)
+![architecture](demo_images/travelAppArchitecture.png)
+![databaseDesign](demo_images/travelAppDatabase.png)
 
 * All three applications (<a href="#operator-tracker-app">Operator Tracker App</a>, <a href="#airport-tracker-app">Airport Tracker App</a>, <a href="#travel-planner-app">Travel Planner App</a>) used a common database for data transfer.
 * The database is prepoulated with hard-coded values in the installer(when the installer is run).
