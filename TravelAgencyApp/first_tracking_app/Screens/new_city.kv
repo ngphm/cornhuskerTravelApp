@@ -1,0 +1,49 @@
+#: import Airport database.Airport
+#: import City database.City
+#: import get_is_nearby database.get_is_nearby
+Screen:
+    name: 'new_city'
+    nearby: ''
+    on_leave:
+        city_name.text = ''
+        identity.text = ''
+        latitude.text = ''
+        longitude.text = ''
+    Header:
+        title: 'New City'
+        BoxLayout:
+            orientation: 'vertical'
+            Widget:
+            GridLayout:
+                cols: 2
+                rows: 4
+                row_force_default: True
+                row_default_height: 40
+                Label:
+                    text: 'Name: '
+                TextInput:
+                    id: city_name
+                Label:
+                    text: 'Geographic identity: '
+                TextInput:
+                    id: identity
+                Label:
+                    text: 'Latitude: '
+                TextInput:
+                    id: latitude
+                    input_filter: 'float'
+                Label:
+                    text: 'Longitude: '
+                TextInput:
+                    id: longitude
+                    input_filter: 'float'
+            Widget:
+            Button:
+                id: create_city
+                text: 'Create'
+                size_hint_y: .25
+                on_press:
+                    check = {'name':city_name.text,'geographic_identity':identity.text}
+                    values = {'latitude':latitude.text,'longitude':longitude.text}
+                    app.create_popup(app.create_object(app.session,City,check,values,False))
+                    app.create_popup(app.handle_confirmation_screen(app.session,Airport,check,values,City,app.root,app.dialog,root.nearby))

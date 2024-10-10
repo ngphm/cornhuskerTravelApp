@@ -1,0 +1,49 @@
+#: import Airport database.Airport
+#: import City database.City
+#: import get_is_nearby database.get_is_nearby
+Screen:
+    name: 'new_airport'
+    nearby: ''
+    on_leave:
+        airport_name.text = ''
+        airport_code.text = ''
+        longitude.text = ''
+        latitude.text = ''
+    Header:
+        title: 'New Airport'
+        BoxLayout:
+            orientation: 'vertical'
+            Widget:
+            GridLayout:
+                cols: 2
+                rows: 4
+                row_force_default: True
+                row_default_height: 40
+                Label:
+                    text: 'Name: '
+                TextInput:
+                    id: airport_name
+                Label:
+                    text: 'ICAO airport code: '
+                TextInput:
+                    id: airport_code
+                Label:
+                    text: 'Latitude: '
+                TextInput:
+                    id: latitude
+                    input_filter: 'float'
+                Label:
+                    text: 'Longitude: '
+                TextInput:
+                    id: longitude
+                    input_filter: 'float'
+            Widget:
+            Button:
+                id: create_airport
+                size_hint_y: .25
+                text: 'Create'
+                on_press:
+                    check = {'ICAO_code':airport_code.text.upper()}
+                    values = {'name':airport_name.text,'latitude':latitude.text,'longitude':longitude.text}
+                    app.create_popup(app.create_object(app.session,Airport,check,values,False))
+                    app.create_popup(app.handle_confirmation_screen(app.session,City,check,values,Airport,app.root,app.dialog,root.nearby))
